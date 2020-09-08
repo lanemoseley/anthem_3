@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load markdown_extras %}
+{% block page_content %}
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="{{ post.image.url }}" alt="" width="100%">
+    </div>
+    <div class="col-md-8">
+            <h1>{{ post.title }}</h1>
+        <small>
+            {{ post.created_on.date }}
+        </small>
+        <p>{{ post.body | markdown | safe }}</p>
+    </div>
+</div>
+{% endblock %}
