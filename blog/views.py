@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import CommentForm
 from .models import Post, Comment
+import markdown
 
 
 def blog_index(request):
@@ -27,6 +28,13 @@ def blog_category(request, category):
 
 def blog_detail(request, pk):
     post = Post.objects.get(pk=pk)
+    post.body = markdown.markdown(post.body,
+                                  extensions=[
+                                      'markdown.extensions.extra',
+                                      'markdown.extensions.fenced_code',
+                                      'markdown.extensions.codehilite',
+                                      'markdown.extensions.toc',
+                                  ])
 
     form = CommentForm()
     if request.method == 'POST':
