@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls import reverse
 from .forms import CommentForm
 from .models import Post, Comment
 import markdown
@@ -46,6 +47,7 @@ def blog_detail(request, pk):
                 post=post
             )
             comment.save()
+            return redirect(reverse("blog_index") + str(pk))
 
     comments = Comment.objects.filter(post=post)
     context = {
