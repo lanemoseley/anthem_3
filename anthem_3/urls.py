@@ -23,7 +23,6 @@ urlpatterns = [
     path('projects/', include('projects.urls')),
     path('blog/', include('blog.urls')),
     path('about/', include('about.urls')),
-    path('ml_library', include('ml_library.urls')),
     path('', include('projects.urls')),
 ]
 if settings.DEBUG:

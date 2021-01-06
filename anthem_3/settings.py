@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'projects',
     'blog',
     'about',
-    'ml_library',
     'home',
 ]
 
