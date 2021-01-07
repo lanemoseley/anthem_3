@@ -24,10 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = "%ayog%85w7w7_noej5vem817c2^)p55q##-u6j$5-2-hwtti%%"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -81,11 +83,18 @@ WSGI_APPLICATION = 'anthem_3.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+# TODO: get this to work
+#       https://devcenter.heroku.com/articles/heroku-postgres-import-export
+#       https://gist.github.com/gwangjinkim/f13bf596fefa7db7d31c22efd1627c7a
+#       https://www.enterprisedb.com/postgres-tutorials/how-use-postgresql-django
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'portfolio_db',
+        'USER': 'django',
+        'PASSWORD': 'anthem',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
