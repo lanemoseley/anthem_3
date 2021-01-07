@@ -55,8 +55,8 @@ def blog_detail(request, pk):
             # Send an email alert
             send_mail(
                 'ANTHEM_3:  Comment Received',
-                str(comment_author) + "\n" + str(comment_body),
-                '',
+                'Author: ' + str(comment_author) + "\n\n" + 'Message: ' + str(comment_body),
+                '7496386@gmail.com',
                 ['moseley.lane@gmail.com'],
                 fail_silently=False,
             )
