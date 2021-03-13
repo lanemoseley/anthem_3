@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load markdown_extras %}
 {% block page_content %}
 
 <div class="row">
@@ -11,7 +10,7 @@
         <small>
             {{ post.created_on.date }}
         </small>
-        <p>{{ post.body | markdown | safe }}</p>
+        <p>{{ post.body | safe }}</p>
     </div>
 </div>
 {% endblock %}
