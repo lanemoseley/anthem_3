@@ -11,7 +11,8 @@
 
   <title>Lane Moseley | {% block title %}{% endblock %}</title>
 
-  <meta name="description" content="Professional portfolio for Lane Moseley, a Software Development Engineer specializing in back-end database design and development.">
+
+  <meta name="description" content="{% block description %}{% endblock %}"/>
   <meta name="keywords" content="Lane Moseley, Lane Moseley Portfolio, Back-end Development, Database Development, Software Engineer">
   <meta name="canonical" href="{{request.path}}"/>
   <meta name="home" href="{% url 'project_index' %}"/>
