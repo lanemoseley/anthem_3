@@ -1,0 +1,39 @@
+name: Deploy to Linode
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+  deploy-to-linode:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'  # Only deploy from the main branch
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to Staging
+        run: |
+          ssh -o StrictHostKeyChecking=no root@45.56.112.34 "
+            cd /opt/anthem_3 &&
+            git reset --hard &&
+            git clean -fd &&
+            git fetch --all &&
+            git reset --hard origin/main &&
+            ./backup.sh &&
+            systemctl restart gunicorn
+          "
