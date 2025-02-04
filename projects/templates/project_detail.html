@@ -15,8 +15,10 @@
         <br>
         <h5>Technology used:</h5>
         <p>{{ project.technology }}</p>
-        <h5>Source:</h5>
-        <p><a href="{{ project.url }}">{{ project.url }}</a></p>
+        {% if project.url %}
+            <h5>Source:</h5>
+            <p><a href="{{ project.url }}">{{ project.url }}</a></p>
+        {% endif %}
     </div>
     <div class="col-md-6">
         <img src="{{ project.image.url }}" alt="" width="60%">
