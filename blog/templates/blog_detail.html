@@ -8,7 +8,8 @@
 <div class="col-md-8 offset-md-2">
     <h1>{{ post.title }}</h1>
     <small>
-        {{ post.created_on.date }} |&nbsp;
+        Created: {{ post.created_on.date }} |&nbsp;
+        Modified: {{ post.last_modified.date }} |&nbsp;
         Categories:&nbsp;
         {% for category in post.categories.all %}
         <a href="{% url 'blog_category' category.name %}">

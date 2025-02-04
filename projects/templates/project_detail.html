@@ -10,6 +10,10 @@
 <h1>{{ project.title }}</h1>
 <div class="row">
     <div class="col-md-6">
+        <small>
+            Created: {{ project.created_on.date }} |&nbsp;
+            Modified: {{ project.last_modified.date }} &nbsp;
+        </small>
         <p>{{ project.description | markdown | safe }}</p>
         <br>
         <h5>Technologies:</h5>

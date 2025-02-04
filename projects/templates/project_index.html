@@ -16,6 +16,10 @@
                 style="width: 100%; height: 250px; object-fit: contain;">
             <div class="card-body">
                 <h5 class="card-title">{{ project.title }}</h5>
+                <small>
+                    Created: {{ project.created_on.date }} |&nbsp;
+                    Modified: {{ project.last_modified.date }} &nbsp;
+                </small>
                 <p class="card-text">{{ project.description | truncatechars:100 | markdown | safe }}</p>
                 <a href="{% url 'project_detail' project.pk %}"
                    class="btn btn-primary">
