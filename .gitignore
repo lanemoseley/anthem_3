@@ -101,3 +101,5 @@ GitHub.sublime-settings
 
 portfolio-backups
 staticfiles
+
+.DS_Store
