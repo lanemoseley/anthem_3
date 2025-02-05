@@ -6,7 +6,7 @@ Django>=4.2.16
 django-libs==2.0.3
 django-storages==1.10
 docutils>=0.18.1
-gunicorn==20.0.4
+gunicorn==22.0.0
 importlib-metadata>=6.6.0
 jmespath==0.10.0
 Markdown==3.7
@@ -20,7 +20,7 @@ pytz>=2021.3
 s3transfer>=0.11
 setuptools==75.8.0
 six==1.15.0
-sqlparse==0.3.1
+sqlparse==0.5.0
 urllib3>=1.26.4
 wheel==0.45.1
 whitenoise==5.2.0
