@@ -32,6 +32,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = ['45.56.112.34', 'lanemoseley.dev', 'lanemoseley.com']
 
 # Application definition
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
